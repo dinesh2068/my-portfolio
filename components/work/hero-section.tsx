@@ -124,7 +124,9 @@ export function HeroSection() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
       >
-        <ChevronDown className="h-6 w-6 animate-bounce text-muted-foreground" />
+        <a href="#about" aria-label="Scroll Down">
+          <ChevronDown className="h-6 w-6 animate-bounce text-muted-foreground hover:text-neon-purple transition-colors" />
+        </a>
       </motion.div>
 
     </section>
