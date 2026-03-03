@@ -29,7 +29,7 @@ export function GamerFooter() {
 
           {/* Tagline */}
           <p className="text-sm text-red-300/60">
-            When the code compiles, the game begins.
+            In every system, there is a weakness.
           </p>
 
           {/* Copyright */}

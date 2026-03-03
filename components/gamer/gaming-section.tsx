@@ -78,7 +78,7 @@ export function GamingSection() {
           <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-red-400" />
 
           <p className="mt-4 text-muted-foreground">
-            When the code compiles, the game begins.
+            In every system, there is a weakness.
           </p>
         </motion.div>
 
