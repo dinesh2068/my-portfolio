@@ -32,13 +32,13 @@ export default function Home() {
 
         {/* 💼 WORK MODE — FULL PROFESSIONAL */}
         {mode === "work" ? (
-          <>
+          <main className="mx-auto w-full max-w-6xl px-6">
             <HeroSection />
             <AboutSection />
             <SkillsSection />
             <ProjectsSection />
             <ContactSection />
-          </>
+          </main>
         ) : (
           /* 🎮 GAMER MODE — YOUR EXACT ORDER */
           <>

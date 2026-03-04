@@ -1,4 +1,4 @@
-"use client"
+  "use client"
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
@@ -40,18 +40,18 @@ export function Navbar() {
 
   return (
     <motion.header
-      initial={{ y: -80 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? mode === "gamer"
-            ? "bg-black/60 backdrop-blur border-b border-red-400/20"
-            : "glass-card shadow-lg"
-          : "bg-transparent"
-      }`}
-    >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        initial={{ y: -80 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+          scrolled
+            ? mode === "gamer"
+              ? "bg-black/60 backdrop-blur border-b border-red-400/20"
+              : "glass-card shadow-lg"
+            : "bg-transparent"
+        }`}
+      >
+      <nav className="mx-auto w-full max-w-6xl px-6 py-4 flex items-center justify-between">
 
         {/* 🔥 LOGO MODE SWITCH */}
         <div className="flex items-center gap-3 select-none">

@@ -15,7 +15,7 @@ export function GamerAboutSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="grid items-center gap-8 md:grid-cols-2"
+          className="grid items-center gap-8 text-center md:grid-cols-2 md:text-left"
         >
 
           {/* 🎮 LEFT — TEXT */}
@@ -35,7 +35,7 @@ export function GamerAboutSection() {
             </blockquote>
 
             {/* Tags */}
-            <div className="flex flex-wrap gap-3 text-sm pt-2">
+            <div className="flex flex-wrap justify-center gap-3 text-sm md:justify-start">
               <span className="rounded-lg border border-red-400/30 px-3 py-1 text-red-400">
                 PC & Mobile
               </span>

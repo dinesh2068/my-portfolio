@@ -6,11 +6,11 @@ import Image from "next/image"
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-[80vh] items-center px-6 pt-24">
+    <section className="relative flex min-h-[80vh] items-center pt-24">
 
       {/* Background Glow */}
       <div
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-30"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[80vw] w-[80vw] max-h-[600px] max-w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-30"
         style={{
           background:
             "radial-gradient(circle, rgba(124,58,237,0.15) 0%, rgba(6,182,212,0.05) 50%, transparent 70%)",
@@ -38,11 +38,11 @@ export function HeroSection() {
           </div>
 
           {/* Name */}
-          <h1 className="text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl">
-            <span className="neon-text-purple text-neon-purple">
+          <h1 className="text-4xl font-bold text-foreground sm:text-5xl lg:text-6xl">
+            <span className="text-neon-purple block sm:inline">
               Hey, I'm
             </span>{" "}
-            <span className="text-foreground">
+            <span className="block sm:inline">
               Dineshkarthik N
             </span>
           </h1>
