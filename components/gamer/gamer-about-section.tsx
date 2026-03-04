@@ -1,9 +1,11 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useState } from "react"
 import Image from "next/image"
 
 export function GamerAboutSection() {
+  const [flipped, setFlipped] = useState(false)
   return (
     <section
       id="gamer-about"
@@ -17,8 +19,48 @@ export function GamerAboutSection() {
           transition={{ duration: 0.6 }}
           className="grid items-center gap-8 text-center md:grid-cols-2 md:text-left"
         >
+          {/* 🖼 LEFT — PROFILE IMAGE */}
+          <div className="flex justify-center md:justify-end">
+            <div
+              className="relative w-[240px] h-[240px] cursor-pointer [perspective:1200px]"
+              onMouseEnter={() => setFlipped(true)}
+              onMouseLeave={() => setFlipped(false)}
+              onClick={() => setFlipped(!flipped)}
+            >
+              <div
+                className={`relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] ${
+                  flipped ? "[transform:rotateY(180deg)]" : ""
+                }`}
+              >
 
-          {/* 🎮 LEFT — TEXT */}
+                {/* FRONT */}
+                <div className="absolute inset-0 [backface-visibility:hidden]">
+                  <div className="absolute inset-0 rounded-full blur-3xl bg-red-500/20" />
+
+                  <Image
+                    src="/images/gamer_mode/gamer-profile.png"
+                    alt="Rufus Grimmoir"
+                    width={240}
+                    height={240}
+                    className="relative rounded-full border border-red-400/30 object-cover"
+                  />
+                </div>
+
+                {/* BACK */}
+                <div className="absolute inset-0 flex items-center justify-center rounded-full border border-red-400/30 bg-black/80 text-center p-6 text-red-300 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+
+                  <p className="text-sm italic leading-relaxed">
+                    "Connect to Everything, Attach to Nothing."
+                  </p>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+          {/* 🎮 RIGHT — TEXT */}
           <div className="space-y-6">
 
             <h2 className="text-3xl font-bold text-red-400">
@@ -44,20 +86,6 @@ export function GamerAboutSection() {
               </span>
             </div>
 
-          </div>
-
-          {/* 🖼 RIGHT — PROFILE IMAGE */}
-          <div className="flex justify-center md:justify-end">
-            <div className="relative">
-              <div className="absolute inset-0 rounded-full blur-3xl bg-red-500/20" />
-              <Image
-                src="/images/gamer_mode/gamer-profile.png"
-                alt="Rufus Grimmoir"
-                width={240}
-                height={240}
-                className="relative rounded-full border border-red-400/30 object-cover"
-              />
-            </div>
           </div>
 
         </motion.div>

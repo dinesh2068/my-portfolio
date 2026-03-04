@@ -2,11 +2,13 @@
 
 import { motion } from "framer-motion"
 import { ChevronDown, ExternalLink, Mail } from "lucide-react"
+import { useState } from "react"
 import Image from "next/image"
 
 export function HeroSection() {
+  const [flipped, setFlipped] = useState(false)
   return (
-    <section className="relative flex min-h-[80vh] items-center pt-24">
+    <section className="relative flex min-h-[80vh] items-center pt-16 sm:pt-20 lg:pt-24">
 
       {/* Background Glow */}
       <div
@@ -104,14 +106,37 @@ export function HeroSection() {
           <div className="absolute -inset-4 rounded-full bg-neon-purple/20 blur-2xl" />
 
           {/* Image */}
-          <div className="relative h-56 w-56 overflow-hidden rounded-full border-2 border-neon-purple/30 sm:h-72 sm:w-72 lg:h-80 lg:w-80">
-            <Image
-              src="/images/work_mode/profile.png" 
-              alt="Profile picture"
-              fill
-              className="object-cover"
-              priority
-            />
+          <div
+            className="relative h-56 w-56 rounded-full sm:h-72 sm:w-72 lg:h-80 lg:w-80 cursor-pointer [perspective:1200px]"
+            onMouseEnter={() => setFlipped(true)}
+            onMouseLeave={() => setFlipped(false)}
+            onClick={() => setFlipped(!flipped)}
+          >
+            <div
+              className={`relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] ${
+                flipped ? "[transform:rotateY(180deg)]" : ""
+              }`}
+            >
+
+              {/* FRONT IMAGE */}
+              <div className="absolute inset-0 overflow-hidden rounded-full border-2 border-neon-purple/30 [backface-visibility:hidden]">
+                <Image
+                  src="/images/work_mode/profile.png"
+                  alt="Profile picture"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+
+              {/* BACK QUOTE */}
+              <div className="absolute inset-0 flex items-center justify-center rounded-full border-2 border-neon-purple/30 bg-black/80 p-6 text-center text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                <p className="text-sm italic leading-relaxed">
+                  "Be the reason someone believes that kindness still lives in this world."
+                </p>
+              </div>
+
+            </div>
           </div>
         </motion.div>
 
