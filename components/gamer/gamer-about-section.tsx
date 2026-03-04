@@ -79,8 +79,7 @@ export function GamerAboutSection() {
                 <div className="absolute inset-0 flex items-center justify-center rounded-full border border-red-400/30 bg-black/80 text-center p-6 text-red-300 [transform:rotateY(180deg)] [backface-visibility:hidden]">
 
                   <p className="text-sm italic leading-relaxed">
-                    "If you are losing a game, change your game.  
-                    Remember there is no game you cannot cheat."
+                    "Connect with Everything, Attach to Nothing "
                   </p>
 
                 </div>
