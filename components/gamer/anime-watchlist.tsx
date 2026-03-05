@@ -18,9 +18,9 @@ export function AnimeWatchlist() {
 
           {/* LEFT CONTENT */}
           <p className="text-gray-300 text-sm md:text-base max-w-xl leading-relaxed">
-            Anime has always been part of my world — from psychological
-            mind games to strategic battles and unforgettable stories.
-            I keep track of everything I watch in my personal archive.
+            Anime has always been part of my world. It was never just a show to me.
+            It became a place where I found hope when I had none. The characters taught me to fight, to endure, and to believe.
+            When life felt dark, these stories gave me light. It reminded me that my story isn’t over.
           </p>
 
           {/* RIGHT BUTTON */}
