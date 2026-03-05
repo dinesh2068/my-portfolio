@@ -17,6 +17,7 @@ export function Navbar() {
       ? [
           { label: "About", href: "#gamer-about" },
           { label: "Gaming", href: "#gaming" },
+          { label: "Anime", href: "#anime" },
           { label: "Connect", href: "#contact" },
         ]
       : [

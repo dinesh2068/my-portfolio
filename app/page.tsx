@@ -7,12 +7,14 @@ import { AboutSection } from "@/components/work/about-section"
 import { SkillsSection } from "@/components/work/skills-section"
 import { ProjectsSection } from "@/components/work/projects-section"
 import { ContactSection } from "@/components/work/contact-section"
+import QuoteSection from "@/components/work/QuoteSection"
 import { Footer } from "@/components/work/footer"
 import { useMode } from "@/components/mode-context"
 
 
 import { GamerAboutSection } from "@/components/gamer/gamer-about-section"
 import { GamingSection } from "@/components/gamer/gaming-section"
+import { AnimeWatchlist } from "@/components/gamer/anime-watchlist"
 import { GamerConnectSection } from "@/components/gamer/gamer-connect-section"
 import { GamerFooter } from "@/components/gamer/gamer-footer"
 
@@ -38,12 +40,14 @@ export default function Home() {
             <SkillsSection />
             <ProjectsSection />
             <ContactSection />
+            <QuoteSection />
           </main>
         ) : (
           /* 🎮 GAMER MODE — YOUR EXACT ORDER */
           <>
             <GamerAboutSection />
             <GamingSection />
+            <AnimeWatchlist />
             <GamerConnectSection />
           </>
         )}

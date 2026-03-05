@@ -79,11 +79,14 @@ export function GamerConnectSection() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="mb-12 text-sm font-medium uppercase tracking-widest text-red-400">
-            Connect
-          </h2>
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
+              Connect
+            </h2>
+            <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-red-400" />
+          </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {platforms.map((p, i) => {
               const isCopied = copiedIndex === i
 

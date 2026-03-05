@@ -38,10 +38,11 @@ export function GamerAboutSection() {
 
             {/* Tags */}
             <div className="flex flex-wrap justify-center gap-3 text-sm md:justify-start">
-              <span className="rounded-lg border border-red-400/30 px-3 py-1 text-red-400">
+              <span className="rounded-lg border border-red-400/30 px-3 py-1 text-red-400 transition-all duration-300 hover:shadow-[0_0_12px_rgba(255,70,70,0.6)] active:shadow-[0_0_12px_rgba(255,70,70,0.6)]">
                 PC & Mobile
               </span>
-              <span className="rounded-lg border border-red-400/30 px-3 py-1 text-red-400">
+
+              <span className="rounded-lg border border-red-400/30 px-3 py-1 text-red-400 transition-all duration-300 hover:shadow-[0_0_12px_rgba(255,70,70,0.6)] active:shadow-[0_0_12px_rgba(255,70,70,0.6)]">
                 Since 2017
               </span>
             </div>
@@ -79,8 +80,7 @@ export function GamerAboutSection() {
                 <div className="absolute inset-0 flex items-center justify-center rounded-full border border-red-400/30 bg-black/80 text-center p-6 text-red-300 [transform:rotateY(180deg)] [backface-visibility:hidden]">
 
                   <p className="text-sm italic leading-relaxed">
-                    "If you are losing a game, change your game.  
-                    Remember there is no game you cannot cheat."
+                    "Connect with Everything, Attach to Nothing."
                   </p>
 
                 </div>
