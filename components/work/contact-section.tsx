@@ -2,7 +2,9 @@
 
 import { motion } from "framer-motion"
 import { Mail, Send, Github, Linkedin, Phone } from "lucide-react"
-import { useState } from "react"
+import { useState,useEffect  } from "react"
+import { toast } from "sonner"
+import emailjs from "@emailjs/browser"
 
 export function ContactSection() {
   const [formState, setFormState] = useState({
@@ -11,24 +13,60 @@ export function ContactSection() {
     message: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false)
+
+  const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+  const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+  const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+
+    useEffect(() => {
+    if (PUBLIC_KEY) {
+      emailjs.init(PUBLIC_KEY)
+    }
+  }, [PUBLIC_KEY])
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const subject = encodeURIComponent(
-      `Portfolio Contact from ${formState.name}`
-    )
-    const body = encodeURIComponent(
-      `Name: ${formState.name}\nEmail: ${formState.email}\n\n${formState.message}`
-    )
+    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+      toast.error("Configuration Error.\nEmail service is not configured properly.")
+      return
+    }
 
-    window.location.href = `mailto:baladinesh2068@gmail.com?subject=${subject}&body=${body}`
+    try {
+      setLoading(true)
 
-    setFormState({ name: "", email: "", message: "" })
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          name: formState.name,
+          email: formState.email,
+          message: formState.message,
+        },
+        PUBLIC_KEY
+      )
+      toast.success("Message sent! \nThanks for reaching out. I'll reply soon.")
+
+      setFormState({
+        name: "",
+        email: "",
+        message: "",
+      })
+
+    } catch (error) {
+      console.error(error)
+      toast.error("Error. \n Failed to send message. Please try again.")
+
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
     <section id="contact" className="relative px-6 py-24 scroll-mt-28">
       <div className="mx-auto max-w-6xl">
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -41,11 +79,13 @@ export function ContactSection() {
             <Mail className="h-8 w-8 text-neon-purple" />
             Get In Touch
           </h2>
+
           <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-neon-purple" />
         </motion.div>
 
         <div className="grid gap-10 md:grid-cols-2">
-          {/* LEFT SIDE — Contact Info */}
+
+          {/* LEFT SIDE */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -60,7 +100,9 @@ export function ContactSection() {
             <div className="flex flex-col gap-4">
 
               <a
-                href="tel:+91 6379731223" className="flex items-center gap-3 rounded-lg border border-border bg-secondary/50 p-4 transition-all hover:border-neon-purple/40">
+                href="tel:+916379731223"
+                className="flex items-center gap-3 rounded-lg border border-border bg-secondary/50 p-4 transition-all hover:border-neon-purple/40"
+              >
                 <Phone className="h-5 w-5 text-neon-cyan" />
                 <span className="text-sm font-medium text-foreground">
                   +91 6379731223
@@ -100,10 +142,11 @@ export function ContactSection() {
                   GitHub
                 </span>
               </a>
+
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE — Form */}
+          {/* RIGHT SIDE FORM */}
           <motion.form
             onSubmit={handleSubmit}
             initial={{ opacity: 0, x: 40 }}
@@ -112,6 +155,7 @@ export function ContactSection() {
             transition={{ duration: 0.6 }}
             className="glass-card rounded-xl p-8 flex flex-col gap-5"
           >
+
             <input
               type="text"
               required
@@ -147,12 +191,15 @@ export function ContactSection() {
 
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-neon-purple px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:shadow-[0_0_20px_rgba(124,58,237,0.4)]"
+              disabled={loading}
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-neon-purple px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:shadow-[0_0_20px_rgba(124,58,237,0.4)] disabled:opacity-70"
             >
               <Send className="h-4 w-4" />
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </button>
+
           </motion.form>
+
         </div>
       </div>
     </section>
