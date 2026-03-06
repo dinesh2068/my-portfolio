@@ -6,7 +6,7 @@ import { ModeMeta } from "@/components/mode-meta"
 import { Toaster } from "sonner"
 
 export const metadata: Metadata = {
-  title: "DK | Full Stack Developer",
+  title: "DK | Dineshkarthik",
 }
 
 export const viewport: Viewport = {

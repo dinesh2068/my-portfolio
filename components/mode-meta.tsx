@@ -14,7 +14,7 @@ export function ModeMeta() {
     metaDescription.setAttribute("name", "description")
 
     if (mode === "work") {
-      document.title = "DK | Full Stack Developer"
+      document.title = "DK | Dineshkarthik"
       metaDescription.setAttribute(
         "content",
         "DK — Full Stack Developer"
