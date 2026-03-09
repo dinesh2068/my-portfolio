@@ -34,7 +34,7 @@ export function GamerFooter() {
 
           {/* Copyright */}
           <p className="text-xs text-red-500/50">
-            © {new Date().getFullYear()} Rufus Grimmoir. All rights reserved.
+           Copyright © {new Date().getFullYear()} Grimmoir Organization. All rights reserved.
           </p>
 
         </div>

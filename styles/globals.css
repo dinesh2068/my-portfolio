@@ -127,6 +127,13 @@
 /* 🔴 GAMER MODE — GLOBAL OVERRIDE */
 .gamer-theme {
   background-color: #050505;
+  --border: rgba(255, 80, 80, 0.25);
+  --ring: rgba(255, 80, 80, 0.5);
+}
+
+/* Gamer mode border override */
+.gamer-theme * {
+  border-color: rgba(255, 80, 80, 0.25) !important;
 }
 
 /* Text glow override */

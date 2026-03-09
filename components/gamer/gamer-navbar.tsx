@@ -6,17 +6,17 @@ import { Menu, X } from "lucide-react"
 import Image from "next/image"
 import { useMode } from "@/components/mode-context"
 
-export function WorkNavbar() {
+export function GamerNavbar() {
   const { toggleMode } = useMode()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const navLinks = [
-    { label: "About", href: "#about" },
-    { label: "Skills", href: "#skills" },
-    { label: "Projects", href: "#projects" },
-    { label: "My Hobby", action: "toggle" },
-    { label: "Contact", href: "#contact" },
+    { label: "About", href: "#gamer-about" },
+    { label: "Gaming", href: "#gaming" },
+    { label: "Anime", href: "#anime" },
+    { label: "Connect", href: "#contact" },
+    { label: "IRL", action: "toggle" },
   ]
 
   useEffect(() => {
@@ -31,19 +31,21 @@ export function WorkNavbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        scrolled ? "glass-card shadow-lg" : "bg-transparent"
+        scrolled
+          ? "bg-black/60 backdrop-blur border-b border-red-500/30"
+          : "bg-transparent"
       }`}
     >
       <nav className="mx-auto w-full max-w-6xl px-6 py-4 flex items-center justify-between">
 
-        {/* LOGO → scroll to top */}
+        {/* LOGO */}
         <a
-          href="#hero"
+          href="#gamer-hero"
           className="relative h-10 w-10 hover:scale-110 transition"
         >
           <Image
-            src="/logos/dk-logo.png"
-            alt="DK Logo"
+            src="/logos/RG-logo.png"
+            alt="RG Logo"
             fill
             className="object-contain"
             priority
@@ -57,14 +59,14 @@ export function WorkNavbar() {
               {link.action === "toggle" ? (
                 <button
                   onClick={toggleMode}
-                  className="text-sm font-medium text-muted-foreground hover:text-neon-cyan"
+                  className="text-sm font-semibold text-red-400 hover:scale-105 transition"
                 >
                   {link.label}
                 </button>
               ) : (
                 <a
                   href={link.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-neon-cyan"
+                  className="text-sm font-medium text-muted-foreground hover:text-red-400"
                 >
                   {link.label}
                 </a>
@@ -80,14 +82,14 @@ export function WorkNavbar() {
         >
           {mobileOpen ? <X /> : <Menu />}
         </button>
-
       </nav>
       {mobileOpen && (
       <motion.div
         initial={{ opacity: 0, height: 0 }}
         animate={{ opacity: 1, height: "auto" }}
         transition={{ duration: 0.3 }}
-        className="glass-card border-t border-border md:hidden"
+        className="glass-card border-t border-red-400/30 md:hidden"
+        // className="backdrop-blur border-t border-red-400/30 md:hidden"
       >
         <ul className="flex flex-col gap-4 px-6 py-6">
           {navLinks.map((link) => (
@@ -98,7 +100,7 @@ export function WorkNavbar() {
                     toggleMode()
                     setMobileOpen(false)
                   }}
-                  className="block text-sm font-medium text-muted-foreground hover:text-neon-cyan"
+                  className="block text-sm font-semibold text-red-400 hover:scale-105 transition"
                 >
                   {link.label}
                 </button>
@@ -106,7 +108,7 @@ export function WorkNavbar() {
                 <a
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block text-sm font-medium text-muted-foreground hover:text-neon-cyan"
+                  className="block text-sm font-medium text-muted-foreground hover:text-red-400"
                 >
                   {link.label}
                 </a>
@@ -118,4 +120,4 @@ export function WorkNavbar() {
     )}
     </motion.header>
   )
-}
+} 

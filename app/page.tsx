@@ -1,7 +1,7 @@
 "use client"
 
 import { AnimatedBackground } from "@/components/animated-background"
-import { Navbar } from "@/components/work/navbar"
+import { Navbar } from "@/components/Navbar-control"
 import { HeroSection } from "@/components/work/hero-section"
 import { AboutSection } from "@/components/work/about-section"
 import { SkillsSection } from "@/components/work/skills-section"

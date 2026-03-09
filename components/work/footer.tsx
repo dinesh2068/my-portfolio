@@ -10,17 +10,17 @@ export function Footer() {
 
         {/* Logo + Copyright */}
         <div className="flex items-center gap-3 text-sm text-muted-foreground">
-          <div className="relative h-5 w-5">
+          {/* <div className="relative h-5 w-5">
             <Image
               src="/logos/dk-logo.png"
               alt="DK Logo"
               fill
               className="object-contain "
             />
-          </div>
+          </div> */}
 
           <span>
-            © {new Date().getFullYear()} Dineshkarthik N. All rights reserved.
+           Copyright © {new Date().getFullYear()} Grimmoir Organization. All rights reserved.
           </span>
         </div>
 

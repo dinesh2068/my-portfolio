@@ -8,7 +8,7 @@ import Image from "next/image"
 export function HeroSection() {
   const [flipped, setFlipped] = useState(false)
   return (
-    <section className="relative flex min-h-[80vh] items-center pt-16 sm:pt-20 lg:pt-24">
+    <section id="hero" className="relative flex min-h-[80vh] items-center pt-16 sm:pt-20 lg:pt-24">
 
       {/* Background Glow */}
       <div
