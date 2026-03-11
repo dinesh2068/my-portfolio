@@ -40,7 +40,7 @@ export function GamerNavbar() {
 
         {/* LOGO */}
         <a
-          href="#gamer-hero"
+          href="#gamer-about"
           className="relative h-10 w-10 hover:scale-110 transition"
         >
           <Image
