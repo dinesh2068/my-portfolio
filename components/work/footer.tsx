@@ -20,7 +20,7 @@ export function Footer() {
           </div> */}
 
           <span>
-           Copyright © {new Date().getFullYear()} Grimmoir Organization. All rights reserved.
+           Copyright © {new Date().getFullYear()} DK . All rights reserved.
           </span>
         </div>
 

@@ -23,19 +23,19 @@ const projects: Project[] = [
     github: "https://github.com/dinesh2068/WebPage_Auto_Refresher.git",
   },
   {
-    title: "ThinkBot",
+    title: "CampusCred: Student OD Management System",
     description:
-      "AI-powered Chrome extension that detects MCQs on LMS platforms and generates real-time answers using LLMs like GPT, Claude, Gemini, and others, customizable API keys, and persistent storage for user settings. ",
-    image: "/images/work_mode/thinkbot.png",
-    tags: ["HTML", "CSS", "Javascript", "Manifest V3"],
-    github: "https://github.com/dinesh2068/ThinkBot-AI-Quiz-Assistant.git",
+      "Collaborated on developing a Student OD Management System to digitize and streamline request submission, approval, and tracking processes. ",
+    image: "/images/work_mode/campuscred.png",
+    tags: ["React.js", "TypeScript", "JavaScript", "HTML", "CSS", "PostgreSQL","Supabase"],
+    github: "https://github.com/dinesh2068/CampusCred-miniproject.git",
   },
   {
     title: "Evolve GYM",
     description:
       "Built a gym management system as part of an internship, leading UI/UX development with React.js and Tailwind CSS, and integrating FastAPI + Supabase for real-time, role-based features.",
     image: "/images/work_mode/evolve-gym.png",
-    tags: ["React", "FastAPI", "Redis", "Tailwind CSS"],
+    tags: ["React", "Node.js", "Tailwind CSS","PostgreSQL","Supabase"],
     github: "https://github.com/dinesh2068/Gym-Management-Project.git",
     demo: "https://evolvegym-tn.vercel.app/",
   },
@@ -135,6 +135,20 @@ export function ProjectsSection() {
             </motion.article>
           ))}
         </div>
+      <div className="flex justify-center mt-12">
+        <a
+          href="https://github.com/dinesh2068?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-4 px-8 py-4 rounded-xl border border-neon-purple/30 bg-neon-purple/10 hover:bg-neon-purple/20 backdrop-blur-md transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(124,58,237,0.25)] hover:shadow-[0_0_35px_rgba(124,58,237,0.5)]"
+        >
+          <span className="text-base text-neon-purple tracking-wide">
+            See more on
+          </span>
+
+          <Github className="w-6 h-6 text-neon-purple group-hover:scale-110 transition-transform duration-300" />
+        </a>
+      </div>
       </div>
     </section>
   )
